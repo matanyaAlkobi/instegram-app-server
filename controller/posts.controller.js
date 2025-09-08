@@ -21,6 +21,8 @@ export async function getAllPosts(req, res) {
   }
 }
 
+// Converts the id from the server to type number
+// Returns the requested post to the client
 export async function handleGetPostById(req, res) {
   try {
     console.log(req.params.id);
@@ -30,6 +32,6 @@ export async function handleGetPostById(req, res) {
     const TheRequestedPost = await postFinder(idToSearch, dbPostPath);
     res.status(200).json(TheRequestedPost);
   } catch (err) {
-    res.status(err.status || 500).json({message: err.message});
+    res.status(err.status || 500).json({ message: err.message });
   }
 }
