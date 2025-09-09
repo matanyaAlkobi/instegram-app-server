@@ -1,8 +1,9 @@
-import loadDataFromDatabase from "../DAL/postsDAL.js";
+import loadDataFromDatabase, { writeToFile } from "../DAL/postsDAL.js";
 
 import path from "path";
 import { fileURLToPath } from "url";
 import { postFinder } from "../services/post.servise.js";
+import { allowedNodeEnvironmentFlags } from "process";
 
 // Set up the path to the post database file
 const __filename = fileURLToPath(import.meta.url);
@@ -25,13 +26,29 @@ export async function getAllPosts(req, res) {
 // Returns the requested post to the client
 export async function handleGetPostById(req, res) {
   try {
-    console.log(req.params.id);
     const idToSearch = parseInt(req.params.id);
-    console.log(req.params.id);
 
     const TheRequestedPost = await postFinder(idToSearch, dbPostPath);
     res.status(200).json(TheRequestedPost);
   } catch (err) {
     res.status(err.status || 500).json({ message: err.message });
   }
+}
+
+export async function CreatePosthandler(req, res) {
+  try {
+    const newPost = {};
+
+    const allPosts = await loadDataFromDatabase(dbPostPath);
+    const maxID =
+      allPosts.length > 0 ? Math.max(...allPosts.map((r) => r.id)) : 1;
+
+    newPost.id = maxID + 1;
+    newPost.username = req.body.username;
+    newPost.image = req.body.image;
+    newPost.imageDescription = req.body.imageDescription;
+    allPosts.push(newPost);
+    await writeToFile(allPosts, dbPostPath);
+    res.json({ message: "bla bla" });
+  } catch (err) {}
 }
