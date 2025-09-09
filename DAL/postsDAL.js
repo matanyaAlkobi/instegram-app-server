@@ -12,3 +12,15 @@ export default async function loadDataFromDatabase(dbPath) {
     throw err;
   }
 }
+
+export async function writeToFile(dataArray,dbPath) {
+  try {
+    await fs.writeFile(dbPath, JSON.stringify(dataArray, null, 2));
+    console.log("The new data has been successfully entered into the database.")
+  }
+  catch (err) {
+    console.error("Failed to write to DB: " + err.message);
+    throw err;
+  }
+
+}

@@ -5,7 +5,6 @@ import loadDataFromDatabase from "../DAL/postsDAL.js";
 // Returning the requested post
 export async function postFinder(id, dbPath) {
   try {
-    console.log("hi");
 
     let TheRequestedPost = "";
     const idToSearch = Number(id);
