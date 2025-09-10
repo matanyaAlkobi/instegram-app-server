@@ -3,8 +3,8 @@
     "id": 1,
     "username": "mosh",
     "imagemame": "car1",
-    "image": "http://localhost:4545/car1.jpg",
-    "likes": "2",
+    "image": "car1.jpg",
+    "likes": 2,
     "timeAndHour": "5:00",
     "imageDescription": "car1"
   },
@@ -12,8 +12,8 @@
     "id": 2,
     "username": "mosh",
     "imagemame": "car2",
-    "image": "http://localhost:4545/car2.jpg",
-    "likes": "2",
+    "image": "car2.jpg",
+    "likes": 2,
     "timeAndHour": "5:00",
     "imageDescription": "car1"
   },
@@ -21,9 +21,135 @@
     "id": 3,
     "username": "bugati",
     "imagemame": "car3",
-    "image": "http://localhost:4545/car3.jpg",
-    "likes": "10",
+    "image": "car3.jpg",
+    "likes": 10,
     "timeAndHour": "9:00",
     "imageDescription": "car3"
+  },
+  {
+    "id": 16,
+    "username": "zxdfg",
+    "image": "dzgtrh.h",
+    "imageDescription": "drge",
+    "likes": 0,
+    "imagemame": "dzgtrh",
+    "timeAndHour": "10:13"
+  },
+  {
+    "id": 17,
+    "username": "zxdfg",
+    "image": "dsvaebr.rgebd",
+    "imageDescription": "drge",
+    "likes": 0,
+    "imagemame": "dsvaebr",
+    "timeAndHour": "10:17"
+  },
+  {
+    "id": 18,
+    "username": "matan",
+    "image": "car6.jpg",
+    "imageDescription": "car 6 for display",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:20"
+  },
+  {
+    "id": 19,
+    "username": "weEFAER",
+    "image": "car6.jpg",
+    "imageDescription": "fcece",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:28"
+  },
+  {
+    "id": 20,
+    "username": "ds",
+    "image": "car6.jpg",
+    "imageDescription": "erd",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:28"
+  },
+  {
+    "id": 21,
+    "username": "sca",
+    "image": "car6.jpg",
+    "imageDescription": "wefca",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:28"
+  },
+  {
+    "id": 22,
+    "username": "xgdf",
+    "image": "car6.jpg",
+    "imageDescription": "rf3",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:30"
+  },
+  {
+    "id": 23,
+    "username": "xgdf",
+    "image": "car6.jpg",
+    "imageDescription": "rf3",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:31"
+  },
+  {
+    "id": 24,
+    "username": "dsFDvzf",
+    "image": "car6.jpg",
+    "imageDescription": "wfv",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:32"
+  },
+  {
+    "id": 25,
+    "username": "efq",
+    "image": "car6.jpg",
+    "imageDescription": "wffvs",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:33"
+  },
+  {
+    "id": 26,
+    "username": "dsf",
+    "image": "car6.jpg",
+    "imageDescription": "cdf",
+    "likes": 0,
+    "imagemame": "car6",
+    "timeAndHour": "10:45"
+  },
+  {
+    "id": 27,
+    "username": "qsxsw",
+    "image": "sxwwa",
+    "imageDescription": "sx",
+    "likes": 0,
+    "imagemame": "sxwwa",
+    "timeAndHour": "10:56"
+  },
+  {
+    "id": 28,
+    "username": "s",
+    "image": "x",
+    "imageDescription": "xz",
+    "likes": 0,
+    "imagemame": "x",
+    "timeAndHour": "10:58"
+  },
+  {
+    "id": 29,
+    "username": "sdc",
+    "image": "sdc",
+    "imageDescription": "cdd",
+    "likes": 0,
+    "imagemame": "sdc",
+    "timeAndHour": "11:0"
   }
 ]

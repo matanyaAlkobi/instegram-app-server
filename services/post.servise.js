@@ -27,3 +27,8 @@ export async function postFinder(id, dbPath) {
     throw err;
   }
 }
+
+
+export  function writingNewPostToDB(){
+  
+}

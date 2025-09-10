@@ -3,7 +3,6 @@ import loadDataFromDatabase, { writeToFile } from "../DAL/postsDAL.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import { postFinder } from "../services/post.servise.js";
-import { allowedNodeEnvironmentFlags } from "process";
 
 // Set up the path to the post database file
 const __filename = fileURLToPath(import.meta.url);
@@ -35,20 +34,45 @@ export async function handleGetPostById(req, res) {
   }
 }
 
+// Collects all data
+// Sends to function that creates object
+// Sends to function that writes back to file
 export async function CreatePosthandler(req, res) {
   try {
-    const newPost = {};
-
     const allPosts = await loadDataFromDatabase(dbPostPath);
+    const newPost = await createsAPostObj(allPosts, req);
+    allPosts.push(newPost);
+
+    await writeToFile(allPosts, dbPostPath);
+    res.json({ message: newPost });
+  } catch (err) {}
+}
+
+
+// Gets a post uploaded by the user
+// and adds default data to it
+// Returns the new post
+async function createsAPostObj(allPosts, req) {
+  try {
+    const newPost = {};
     const maxID =
       allPosts.length > 0 ? Math.max(...allPosts.map((r) => r.id)) : 1;
 
     newPost.id = maxID + 1;
+
     newPost.username = req.body.username;
+
     newPost.image = req.body.image;
     newPost.imageDescription = req.body.imageDescription;
-    allPosts.push(newPost);
-    await writeToFile(allPosts, dbPostPath);
-    res.json({ message: "bla bla" });
-  } catch (err) {}
+    newPost.likes = 0;
+    const imageName = req.body.image.split(".");
+    newPost.imagemame = imageName[0];
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    newPost.timeAndHour = `${hours}:${minutes}`;
+    return newPost;
+  } catch (error) {
+    res.status(err.status || 500).json({ message: err.message });
+  }
 }
