@@ -12,6 +12,13 @@ const dbPostPath = path.resolve(__dirname, "../DB/postsDB.json");
 // Sends a request to a function to receive the data,
 // and returns the data to the client
 export async function getAllPosts(req, res) {
+
+  if (req.user.role !== "user") {
+    console.log(
+      `Unauthorized access attempt by user with role: ${req.user.role}`
+    );
+    return res.status(403).json({ message: "Unauthorized" });
+  }
   try {
     const allPosts = await loadDataFromDatabase(dbPostPath);
 
@@ -24,6 +31,12 @@ export async function getAllPosts(req, res) {
 // Converts the id from the server to type number
 // Returns the requested post to the client
 export async function handleGetPostById(req, res) {
+  if (req.user.role !== "user") {
+    console.log(
+      `Unauthorized access attempt by user with role: ${req.user.role}`
+    );
+    return res.status(403).json({ message: "Unauthorized" });
+  }
   try {
     const idToSearch = parseInt(req.params.id);
 
@@ -38,6 +51,12 @@ export async function handleGetPostById(req, res) {
 // Sends to function that creates object
 // Sends to function that writes back to file
 export async function CreatePosthandler(req, res) {
+  if (req.user.role !== "user") {
+    console.log(
+      `Unauthorized access attempt by user with role: ${req.user.role}`
+    );
+    return res.status(403).json({ message: "Unauthorized" });
+  }
   try {
     const allPosts = await loadDataFromDatabase(dbPostPath);
     const newPost = await createsAPostObj(allPosts, req);
@@ -47,7 +66,6 @@ export async function CreatePosthandler(req, res) {
     res.json({ message: newPost });
   } catch (err) {}
 }
-
 
 // Gets a post uploaded by the user
 // and adds default data to it
