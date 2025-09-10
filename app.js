@@ -1,5 +1,6 @@
 import express from "express";
 import postRouter from "./routes/posts.router.js";
+import userRoute from  "./routes/user.route.js"
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -34,6 +35,7 @@ server.use(express.static(path.join(imagePath, "public")));
 
 // All routes starting with /post will be handled by postRouter
 server.use("/post", postRouter);
+server.use("/user", userRoute);
 
 //Starts the server and listens on the specified port
 server.listen(process.env.SERVER_PORT, () => {
