@@ -29,6 +29,3 @@ export async function postFinder(id, dbPath) {
 }
 
 
-export  function writingNewPostToDB(){
-  
-}
