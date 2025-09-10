@@ -5,6 +5,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
+import cookieParser from "cookie-parser";
 
 // Set up the path to the image directory folder
 const __filename = fileURLToPath(import.meta.url);
@@ -12,6 +13,7 @@ const __dirname = path.dirname(__filename);
 const imagePath = path.resolve(__dirname, "./");
 
 const server = express();
+server.use(cookieParser());
 
 // Middleware
 server.use(
